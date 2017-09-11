@@ -57,13 +57,28 @@ class TransactionController extends Controller
      */
     public function processTransaction(Request $request, Route $route): array
     {
+        $requestBody = $request->getBody();
+
+        if (!$this->isJson($requestBody)) {
+            throw new \InvalidArgumentException('JSON request body required.');
+        }
+
+        $requestData = json_decode($requestBody, true);
+        if (!isset($requestData['amount'])) {
+            throw new \InvalidArgumentException('Amount field is required in request.');
+        }
+
+        if (!is_numeric($requestData['amount'])) {
+            throw new \InvalidArgumentException('Amount field value should be numeric.');
+        }
+
         if (!$this->checkBasicAuthToken($request, $this->authBasicToken)) {
             throw new AuthorizationException('Authorization token is incorrect.');
         }
 
         $uriParams = $route->getUriParams();
         $email = $uriParams['email'];
-        $amount = $uriParams['amount'];
+        $amount = $requestData['amount'];
 
         $transaction = new Transaction();
         $transaction

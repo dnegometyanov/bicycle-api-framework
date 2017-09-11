@@ -35,7 +35,7 @@ class RoutesLoader
 
     public function bindRoutesToControllers(): void
     {
-        $this->app->getRouter()->post('/transaction/{email}/{amount}/', "controller.transaction:processTransaction");
+        $this->app->getRouter()->post('/transaction/{email}', "controller.transaction:processTransaction");
     }
 }
 
