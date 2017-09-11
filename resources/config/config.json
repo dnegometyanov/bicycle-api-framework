@@ -1,0 +1,10 @@
+{
+  "comment": "DO NOT PUT REAL PASSWORDS HERE",
+  "db.mysql": {
+    "host": "mysql",
+    "db": "bicycle",
+    "user": "root",
+    "password": "123456"
+  },
+  "auth.basic.token": "aW5ub3ZlY3M6aW5ub3ZlY3M="
+}

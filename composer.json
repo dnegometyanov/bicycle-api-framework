@@ -1,0 +1,19 @@
+{
+  "name": "dnegometyanov/bicycle-backend",
+  "description": "Bicycle HTTP API framework, build in 1 weekend, backend",
+  "authors": [
+    {
+      "name": "Denis Negometyanov",
+      "email": "denis.negometyanov@gmail.com"
+    }
+  ],
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Bicycle\\": [
+        "src/"
+      ]
+    }
+  }
+}
